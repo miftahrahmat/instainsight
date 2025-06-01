@@ -1,20 +1,256 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My app</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaInsight - Instagram Account Preview</title>
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="flex justify-center items-center h-screen overflow-hidden bg-white font-sans text-center px-6">
-    <div class="w-full">
-      <span class="text-xs rounded-full mb-2 inline-block px-2 py-1 border border-amber-500/15 bg-amber-500/15 text-amber-500">🔥 New version dropped!</span>
-      <h1 class="text-4xl lg:text-6xl font-extrabold font-sans">
-        <span class="text-2xl lg:text-4xl text-gray-400 block font-semibold">I'm ready to work,</span>
-        Ask me anything.
-      </h1>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        instaPink: '#E1306C',
+                        instaPurple: '#5851DB',
+                        instaBlue: '#405DE6',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fafafa;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            background-size: 400% 400%;
+            animation: gradient 12s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .account-preview {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+        }
+
+        .profile-image-container {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .profile-image-container {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+
+    <!-- Main Content -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Instagram Account Preview Section -->
+        <div class="bg-white account-preview rounded-xl overflow-hidden">
+            <!-- Top Section - Profile Info -->
+            <div class="relative bg-gradient-to-r from-blue-500 to-purple-600 p-6 text-white">
+                <div class="flex flex-col md:flex-row items-center">
+                    <!-- Profile Image -->
+                    <div class="md:mr-8 mb-6 md:mb-0">
+                        <div class="profile-image-container relative">
+                            <img src="https://ik.imagekit.io/miftahr/Screen%20Shot%202025-06-01%20at%2022.26.28.png?updatedAt=1748791998759" 
+                                 alt="Profile" 
+                                 class="w-[230px] h-full object-fit rounded-lg border-4 border-white shadow-xl">
+                        </div>
+                    </div>
+                    
+                    <!-- Basic Info -->
+                    <div class="flex-1 text-center md:text-left">
+                        <h1 class="text-3xl font-bold mb-2">@quranreview</h1>
+                        <p class="text-blue-100 mb-4">Fokus pada interpretasi ayat-ayat Al-Qur’an dalam format kreatif. Kontennya berupa kutipan ayat Al-Qur’an beserta tafsir ringkas atau refleksi. </p>
+                        
+                        <div class="flex flex-wrap justify-center md:justify-start gap-4 mb-4">
+                            <div class="bg-white bg-opacity-20 px-4 py-2 rounded-full">
+                                <div class="flex items-center">
+                                    <i class="fas fa-user-friends mr-2"></i>
+                                    <span class="font-semibold">142k</span>
+                                    <span class="text-blue-100 ml-1">followers</span>
+                                </div>
+                            </div>
+                            <div class="bg-white bg-opacity-20 px-4 py-2 rounded-full">
+                                <div class="flex items-center">
+                                    <i class="fas fa-heart mr-2"></i>
+                                    <span class="font-semibold">8.5%</span>
+                                    <span class="text-blue-100 ml-1">engagement</span>
+                                </div>
+                            </div>
+                            <div class="bg-white bg-opacity-20 px-4 py-2 rounded-full">
+                                <div class="flex items-center">
+                                    <i class="fas fa-hashtag mr-2"></i>
+                                    <span class="font-semibold">32</span>
+                                    <span class="text-blue-100 ml-1">posts</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="mt-2 gradient-bg text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition duration-300 flex items-center mx-auto md:mx-0">
+                            <i class="fab fa-instagram mr-2"></i> View Full Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Content -->
+            <div class="p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Column 1 -->
+                    <div class="space-y-8">
+                        <!-- Niche Analysis -->
+                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-blue-100 py-2 px-3 rounded-full mr-4">
+                                    <i class="fas fa-tag text-blue-600"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold">Niche</h3>
+                            </div>
+                            <div class="pl-16">
+                                <p class="text-gray-700 mb-4 leading-relaxed"><span class="font-medium text-blue-600">Media Kreatif Al-Qur’an</span>, yang menyajikan pengajaran agama dalam bentuk visual dan teks yang mudah dipahami.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Content Strengths -->
+                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-pink-100 py-2 px-3 rounded-full mr-4">
+                                    <i class="fas fa-bolt text-pink-600"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold">Kekuatan Konten</h3>
+                            </div>
+                            <div class="pl-16">
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <div class="bg-green-50 rounded-full p-1 mr-3 mt-1">
+                                            <i class="fas fa-check text-green-500 text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">Desain grafis kreatif dan visual menarik:  Ilustrasi modern berwarna-warni yang memikat perhatian audience.</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="bg-green-50 rounded-full p-1 mr-3 mt-1">
+                                            <i class="fas fa-check text-green-500 text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">Konteks kekinian dan relevansi tematik: kerap mengaitkan pesan Qur’an dengan isu-isu modern atau budaya populer (misalnya referensi film atau serial TV).</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="bg-green-50 rounded-full p-1 mr-3 mt-1">
+                                            <i class="fas fa-check text-green-500 text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">Bahasa singkat dan komunikatif: Konten tafsir disampaikan dengan bahasa yang ringkas dan mudah dipahami.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2 -->
+                    <div class="space-y-8">
+                        <!-- Why We Like It -->
+                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-purple-100 py-2 px-3 rounded-full mr-4">
+                                    <i class="fas fa-star text-purple-600"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold">Kenapa Pilih Akun Ini</h3>
+                            </div>
+                            <div class="pl-16">
+                                <div class="space-y-3">
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center mr-3 mt-0.5">
+                                            <i class="fas fa-palette text-indigo-500 text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">Visual consistency with a signature color grading that enhances brand recall</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-0.5">
+                                            <i class="fas fa-map-marked-alt text-blue-500 text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">Focus on lesser-known locations provides unique value</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-pink-100 flex items-center justify-center mr-3 mt-0.5">
+                                            <i class="fas fa-comments text-pink-500 text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">Conversational tone increases engagement and shares</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center mr-3 mt-0.5">
+                                            <i class="fas fa-brain text-amber-500 text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">Smart use of trending audio in Reels boosts discoverability</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Stats -->
+                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-green-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-chart-bar text-green-600"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold">Quick Stats</h3>
+                            </div>
+                            <div class="pl-16">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-white p-3 rounded-lg border border-gray-100 shadow-sm">
+                                        <div class="text-2xl font-bold text-blue-600 mb-1">8.5%</div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider">Engagement Rate</div>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg border border-gray-100 shadow-sm">
+                                        <div class="text-2xl font-bold text-purple-600 mb-1">2.1k</div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider">Avg. Likes</div>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg border border-gray-100 shadow-sm">
+                                        <div class="text-2xl font-bold text-pink-600 mb-1">142k</div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider">Followers</div>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg border border-gray-100 shadow-sm">
+                                        <div class="text-2xl font-bold text-amber-600 mb-1">23</div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider">Avg. Comments</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-      <img src="https://enzostvs-deepsite.hf.space/arrow.svg" class="absolute bottom-8 left-0 w-[100px] transform rotate-[30deg]" />
-    <script></script>
-  <p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=ewtew/analisaig" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=ewtew/analisaig" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
 </html>
