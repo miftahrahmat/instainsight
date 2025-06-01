@@ -1,4 +1,0 @@
-buat landing page yang menampilkan hasil analisa akun instagram
-buat section untuk menampilkan preview akun instagramnya, kemudian ada beberapa point yang harus ada yaitu : nama akun - Niche - Kenapa kamu pilih akun ini - Apa kekuatan konten mereka(format,tone,visual) - apa yang bisa kamu tiru/terapkan ke akunmu
-bagian <!-- Account Preview --> jadikan space untuk gambar potrait. kemudian hapus bagian <!-- Charts Section -->,  <!-- Stats Overview -->, <!-- Hashtag Analysis -->, <!-- Post Performance -->, <!-- Audience Demographics -->, <!-- Competitor Comparison -->, <!-- Recommendations --> dan <!-- Footer -->
-perbarui tat letaknya
